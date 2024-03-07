@@ -4,6 +4,8 @@ WORKDIR /var/www/laravel
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
+ENV PORT=8000
+
 RUN apt-get update && apt-get install -y \
     build-essential \
     libpng-dev \
@@ -31,4 +33,4 @@ RUN curl -sS https://getcomposer.org/installer | php --  --install-dir=/usr/loca
 COPY ./src /var/www/laravel/
 RUN composer install
 
-CMD ["php","artisan","serve","--host=0.0.0.0"] 
+ENTRYPOINT [ "docker/entrypoint.sh" ]
