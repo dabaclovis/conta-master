@@ -33,4 +33,4 @@ RUN curl -sS https://getcomposer.org/installer | php --  --install-dir=/usr/loca
 COPY . /var/www/laravel/
 RUN composer install
 
-ENTRYPOINT [ "/docker/entrypoint.sh" ]
+ENTRYPOINT [ "entrypoint.sh" ]
